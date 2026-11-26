@@ -2255,6 +2255,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003615010010892533, guid: 32f394870577a4d4b8eebd73d39953fb, type: 3}
+      propertyPath: Power
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003615010010892533, guid: 32f394870577a4d4b8eebd73d39953fb, type: 3}
       propertyPath: toastPrefab
       value: 
       objectReference: {fileID: 8823284492045164335, guid: a5493f8822b9d354396aff3177c453ba, type: 3}
