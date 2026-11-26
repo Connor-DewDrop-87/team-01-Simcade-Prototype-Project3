@@ -152,8 +152,7 @@ public class Player : MonoBehaviour
     void CreateToast()
     {
         // Ensures the Toast Spawns on the Player
-        toastPrefab.transform.position = transform.position;
-        Instantiate(toastPrefab);
+        Instantiate(toastPrefab,this.transform.position,this.transform.rotation);
     }
 
 
