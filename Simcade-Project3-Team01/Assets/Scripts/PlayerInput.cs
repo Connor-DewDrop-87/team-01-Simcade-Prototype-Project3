@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     private float xRotation = 0;
     [Header("Insert Toast Here")]
     public GameObject toastPrefab;
+    public float Power = 10;
+    public Vector3 strikeAngleForce;
 
     void OnValidate()
     {
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour
         HandleMovement();
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            HandlePower();
             CreateToast();
         }
     }
@@ -79,7 +82,8 @@ public class Player : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -85f, 85f);  //Camera can't move past 85 degrees or -85 degrees. TECHNICALLY radians, but you know what I mean.
 
         CameraRef.localRotation = Quaternion.Euler(xRotation, 0f, 0f);  //Oy-ler. Only the camera can move up and down.
-        transform.Rotate(Vector3.up * mouseX);
+        transform.Rotate(mouseX*Vector3.up);
+        //transform.rotation = new Vector3(transform.rotation.x, Mathf.Clamp(transform.rotation.y, 90f, 270f), transform.rotation.z);
     }
 
     void HandleMovement()
@@ -149,8 +153,32 @@ public class Player : MonoBehaviour
         controller.Move(Vector3.up * velocity.y * Time.deltaTime);
     }
 
+    void HandlePower()
+    {
+        // Find Where to throw the Toast Based on Theta
+        float zPoint = 0;
+        float xPoint = 0;
+        float angleTheta = transform.rotation.y;
+        Debug.Log($"Angle: {angleTheta}");
+        // Quadrent 1 (Right Forward)
+        if (angleTheta >= 0 && angleTheta <= 0.7071068f)
+        {
+            zPoint = Power * (1 - angleTheta);
+            xPoint = Power * (angleTheta);
+        }
+        // Quadrent 2 (Left Forward)
+        if (angleTheta < 0 && angleTheta >= -0.7071068f)
+        {
+            zPoint = Power * (1 + angleTheta);
+            xPoint = Power * (angleTheta);
+        }
+        strikeAngleForce = new Vector3(xPoint, Power, zPoint);
+    }
+
     void CreateToast()
     {
+        Toast tb = toastPrefab.GetComponent<Toast>();
+        tb.force = strikeAngleForce;
         // Ensures the Toast Spawns on the Player
         Instantiate(toastPrefab,this.transform.position,this.transform.rotation);
     }
