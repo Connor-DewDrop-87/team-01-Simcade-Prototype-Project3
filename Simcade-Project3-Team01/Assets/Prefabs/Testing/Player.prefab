@@ -139,6 +139,8 @@ MonoBehaviour:
   fastFallMultiplier: 1.75
   CameraRef: {fileID: 2534854099235395233}
   toastPrefab: {fileID: 0}
+  Power: 10
+  strikeAngleForce: {x: 0, y: 0, z: 0}
 --- !u!143 &6586795591591606395
 CharacterController:
   m_ObjectHideFlags: 0
