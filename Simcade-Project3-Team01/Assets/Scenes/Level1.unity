@@ -2300,7 +2300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3286309474309599375, guid: 0b66156730768c943b247f0230a43310, type: 3}
       propertyPath: toastOffSet.y
-      value: 1.4
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 3662925288373842018, guid: 0b66156730768c943b247f0230a43310, type: 3}
       propertyPath: m_Layer
@@ -2360,7 +2360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632980849493042479, guid: 0b66156730768c943b247f0230a43310, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.03
+      value: -1.656
       objectReference: {fileID: 0}
     - target: {fileID: 6632980849493042479, guid: 0b66156730768c943b247f0230a43310, type: 3}
       propertyPath: m_LocalPosition.y
