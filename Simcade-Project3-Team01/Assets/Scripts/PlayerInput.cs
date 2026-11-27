@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     public GameObject toastPrefab;
     public float Power = 10;
     public Vector3 strikeAngleForce;
+    public Vector3 toastOffSet;
 
     void OnValidate()
     {
@@ -180,7 +181,7 @@ public class Player : MonoBehaviour
         Toast tb = toastPrefab.GetComponent<Toast>();
         tb.force = strikeAngleForce;
         // Ensures the Toast Spawns on the Player
-        Instantiate(toastPrefab,this.transform.position,this.transform.rotation);
+        Instantiate(toastPrefab,this.transform.position+toastOffSet,this.transform.rotation);
     }
 
 
